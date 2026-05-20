@@ -1,8 +1,8 @@
-FROM ghcr.io/falcondev-oss/actions-runner:latest as patched-runner
+FROM ghcr.io/falcondev-oss/actions-runner:latest AS patched
 
 FROM myoung34/github-runner:ubuntu-noble
 
-COPY --from=patched-runner /actions-runner /actions-runner
+COPY --from=patched /home/runner /actions-runner
 
 RUN rm -rf /actions-runner/ || true \
   && mkdir -p /actions-runner \
