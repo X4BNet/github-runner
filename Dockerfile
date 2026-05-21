@@ -10,5 +10,13 @@ RUN rm -rf /actions-runner/ || true \
   && tar -xzf /tmp/actions-runner.tar.gz -C /actions-runner \
   && chmod -R 755 /actions-runner \
   && rm -f /tmp/actions-runner.tar.gz \
+  && sudo apt-get update \
+  && sudo apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    tar \
+    gzip \
+    sudo \
+  && rm -rf /var/lib/apt/lists/* \
   && echo 'DOCKER_OPTS="--mtu 1450"' > /etc/default/docker
   
