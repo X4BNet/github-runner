@@ -6,7 +6,7 @@ COPY --from=patched /home/runner /actions-runner
 
 RUN rm -rf /actions-runner/ || true \
   && mkdir -p /actions-runner \
-  && (curl -fsSL -o /tmp/actions-runner.tar.gz "https://github.com/falcondev-oss/github-actions-runner/releases/download/v2.334.0/actions-runner-linux-x64-2.334.0.tar.gz" || wget -qO /tmp/actions-runner.tar.gz "https://github.com/falcondev-oss/github-actions-runner/releases/download/v2.334.0/actions-runner-linux-x64-2.334.0.tar.gz") \
+  && (curl -fsSL -o /tmp/actions-runner.tar.gz "https://github.com/falcondev-oss/github-actions-runner/releases/download/v2.336.0/actions-runner-linux-x64-2.336.0.tar.gz" || wget -qO /tmp/actions-runner.tar.gz "https://github.com/falcondev-oss/github-actions-runner/releases/download/v2.336.0/actions-runner-linux-x64-2.336.0.tar.gz") \
   && tar -xzf /tmp/actions-runner.tar.gz -C /actions-runner \
   && chmod -R 755 /actions-runner \
   && rm -f /tmp/actions-runner.tar.gz \
