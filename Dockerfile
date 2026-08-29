@@ -6,7 +6,7 @@ COPY --from=patched /home/runner /actions-runner
 
 RUN rm -rf /actions-runner/ || true \
   && mkdir -p /actions-runner \
-  && (curl -fsSL -o /tmp/actions-runner.tar.gz "https://github.com/falcondev-oss/github-actions-runner/releases/download/v2.336.0/actions-runner-linux-x64-2.336.0.tar.gz" || wget -qO /tmp/actions-runner.tar.gz "https://github.com/falcondev-oss/github-actions-runner/releases/download/v2.336.0/actions-runner-linux-x64-2.336.0.tar.gz") \
+  && (curl -fsSL -o /tmp/actions-runner.tar.gz "https://github.com/falcondev-oss/github-actions-runner/releases/download/v2.336.0/actions-runner-linux-x64-2.336.0.tar.gz" || wget -qO /tmp/actions-runner.tar.gz "https://github.com/falcondev-oss/github-actions-runner/releases/download/v2.336.0/actions-runner-linux-x64-2.336 .0.tar.gz") \
   && tar -xzf /tmp/actions-runner.tar.gz -C /actions-runner \
   && chmod -R 755 /actions-runner \
   && rm -f /tmp/actions-runner.tar.gz \
@@ -17,6 +17,7 @@ RUN rm -rf /actions-runner/ || true \
     tar \
     gzip \
     sudo \
+    libzip-dev zlib1g-dev libicu-dev g++ build-essential libsodium-dev libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev libargon2-dev libgd-dev libmagickwand-dev \
   && rm -rf /var/lib/apt/lists/* \
   && echo 'DOCKER_OPTS="--mtu 1450"' > /etc/default/docker
   
